@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Form&terra</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+  <script>
+    // Detecta dispositivos móveis e redireciona
+    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.location.href = "contato-mobile";
+    }
+  </script>
+
+  <style>
+    body {
+      background-image: url('./assest/imagens/fundosite1.png');
+      background-size: cover;
+      background-position: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+        .row {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    max-height: 120px;
+    width: 100%;
+}
+
+.row img {  /* Alvo direto da tag <img> */
+    
+    min-height: 120px;
+    max-height: 120px;
+}
+
+    .conteudo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      min-height: 450px;
+      max-height: 450px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      background-color: #FAF7F2;
+      margin-bottom: 10px;
+      max-width: 40%;
+      border-radius: 10px;
+      border: 2px solid #6B4226; /* borda marrom escuro */
+
+    }
+
+    .contato-container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contato-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px 0;
+    }
+
+    .contato-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contato-links a img.icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contato-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .contato-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .contato-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .contato-links a img.icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    form#form-contato {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    form#form-contato input,
+    form#form-contato textarea {
+      width: 100%;
+      padding: 6px 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    form#form-contato textarea {
+      resize: none;
+      height: 50px;
+    }
+
+    form#form-contato button {
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .contato-container h2 {
+      color: #fffdfdff;
+    }
+
+    /* ALERTAS FIXOS */
+    .alerta {
+      display: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      max-width: 90%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #msg-sucesso {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    #msg-erro {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row">
+    <img src="./assest/imagens/logoformterra.svg" >
+  </div>
+
+  <div class="menu-container">
+    <nav class="menu">
+      <a href="index">HOME</a>
+      <a href="sobre">SOBRE</a>
+      <a href="projetos">PROJETOS SOB MEDIDA</a>
+      <a href="https://formeterra.lojavirtualnuvem.com.br/">
+        LOJA VIRTUAL
+      </a>
+      <a href="catalogo">CATÁLOGOS</a>
+    </nav>
+  </div>
+
+  <!-- ALERTAS -->
+  <div id="msg-sucesso" class="alerta">
+    <p>Mensagem enviada com sucesso!</p>
+    <p>Aguarde nosso time vai te retornar...</p>
+   </div>
+  <div id="msg-erro" class="alerta">Erro ao enviar a mensagem. Por favor, tente novamente.</div>
+
+  <div class="conteudo">
+    <div class="contato-container">
+      <h2 style=" color: #6B4226; border-radius: 10px; padding: 10px 15px; ">
+        Deixe sua mensagem abaixo.
+      </h2>
+
+      <form id="form-contato">
+        <input type="text" name="nome" placeholder="Nome *" required>
+        <input type="tel" name="telefone" id="telefone" placeholder="Telefone *" required>
+        <input type="email" name="email" placeholder="E-mail *" required>
+        <input type="text" name="cidade" placeholder="Cidade *" required>
+        <textarea name="mensagem" placeholder="Mensagem *" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <a href="tel://19993946374" class="telefone">
+      <img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
+      (19) 99394-6374
+    </a>
+
+    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações"
+      class="whatsapp">
+      <img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">
+      Chame no WhatsApp
+    </a>
+
+    <a href="mailto:contato@formeterra.com.br" class="email">
+      <img src="./assest/icones/email.png" alt="E-mail" class="icon">
+      E-mail
+    </a>
+
+    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco">
+      <img src="./assest/icones/endereco.png" alt="Endereço" class="icon">
+      Endereço
+    </a>
+  </div>
+
+  <div class="direitos">
+    <p>
+      Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy;
+      <span id="ano"></span> | Site desenvolvido por:
+      <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+    </p>
+  </div>
+
+  <!-- Importa o SDK do EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Inicializa EmailJS
+    emailjs.init("WDv2zeoAsufynHI_o"); // sua Public Key
+
+    // Atualiza o ano automaticamente
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Máscara telefone
+    const telInput = document.getElementById('telefone');
+    telInput.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.slice(0, 11);
+      if (value.length > 6) {
+        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+      } else if (value.length > 2) {
+        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+      } else {
+        e.target.value = value;
+      }
+    });
+
+    // Função para exibir alerta
+    function mostrarAlerta(id) {
+      const alerta = document.getElementById(id);
+      alerta.style.display = "block";
+
+      setTimeout(() => {
+        alerta.style.display = "none";
+      }, 4000); // 4 segundos
+    }
+
+    // Envio do formulário
+    document.getElementById("form-contato").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = {
+        nome: this.nome.value,
+        telefone: this.telefone.value,
+        email: this.email.value,
+        cidade: this.cidade.value,
+        mensagem: this.mensagem.value
+      };
+
+      emailjs.send("service_r391d5t", "template_7jgb1rh", formData)
+        .then(() => {
+          mostrarAlerta("msg-sucesso");
+          this.reset();
+        })
+        .catch(() => {
+          mostrarAlerta("msg-erro");
+        });
+    });
+  </script>
+
+</body>
+
+</html>
