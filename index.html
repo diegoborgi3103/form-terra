@@ -425,11 +425,19 @@
     <div class="linha-cinza"></div>
     <nav>
         <ul class="menu">
-            <li><a href="sobre">SOBRE</a></li>
-            <li><a href="catalogo">CATÁLOGOS</a></li>
-            <li><a href="projetos">PROJETOS SOB MEDIDA</a></li>
-            <li><a href="https://formeterra.lojavirtualnuvem.com.br/">LOJA VIRTUAL</a></li>
-            <li><a href="contato">CONTATO</a></li>
+            <li><a href="sobre" class="fb-button" data-event="ClickSobre">SOBRE</a></li>
+<li><a href="catalogo" class="fb-button" data-event="ClickCatalogos">CATÁLOGOS</a></li>
+<li><a href="projetos" class="fb-button" data-event="ClickProjetos">PROJETOS SOB MEDIDA</a></li>
+<li>
+  <a class="fb-button" 
+     data-event="ClickLojaVirtualMenu" 
+     data-url="https://formeterra.lojavirtualnuvem.com.br/" 
+     data-target="_blank">
+     LOJA VIRTUAL
+  </a>
+</li>
+<li><a href="contato" class="fb-button" data-event="ClickContato">CONTATO</a></li>
+
         </ul>
     </nav>
 </header>
@@ -447,8 +455,10 @@
                 Veja nossos <strong>CATÁLOGOS</strong> e <strong>PROJETOS SOB MEDIDA</strong> e conheça nossa exclusiva <strong>Loja Virtual</strong> ou veja um vídeo de nossa fábrica.
             </p>
             <div>
-                <button class="button-lojavirtual" onclick="window.location.href='https://lojavirtual.formeterra.com.br/'">Loja Virtual</button>
-                <button class="button-vejaumvideo" id="btnVideo">Veja um Video</button>
+                <button class="fb-button button-lojavirtual" data-event="ClickLojaVirtual" data-url="https://lojavirtual.formeterra.com.br/">Loja Virtual</button>
+
+                <button class="fb-button button-vejaumvideo" id="btnVideo" data-event="ClickVideo">Veja um Video</button>
+
             </div>
             <!-- Modal vídeo -->
             <div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
@@ -479,7 +489,8 @@
             <p style="margin: 20px; line-height: 1.6; font-weight: bold; color: #545454;">
                 Transforme qualquer ambiente com vasos de cerâmica, combinando tradição, design e sofisticação...
             </p>
-            <button class="button-vejaumvideo" onclick="window.open('https://diegoborgi3103.github.io/formulario/', '_blank')">QUERO UM CURSO GRÁTIS</button>
+            <button class="fb-button button-vejaumvideo" data-event="ClickCursoGratis" data-url="https://diegoborgi3103.github.io/formulario/" data-target="_blank">QUERO UM CURSO GRÁTIS</button>
+
         </div>
         <img class="imagemdicas2" src="./assest/imagens/ambiente2.png" alt="imagemdicas2">
     </div>
@@ -495,10 +506,16 @@
 
 <!-- Rodapé -->
 <div class="rodape">
-    <a href="tel://19993946374"><img src="./assest/icones/telefone.png" alt="Telefone" class="icon">(19) 99394-6374</a>
-    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações"><img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">Chame no WhatsApp</a>
-    <a href="mailto:contato@formeterra.com.br"><img src="./assest/icones/email.png" alt="E-mail" class="icon">E-mail</a>
-    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9"><img src="./assest/icones/endereco.png" alt="Endereço" class="icon">Endereço</a>
+    <a href="tel://19993946374" class="fb-button" data-event="ContactTelephone" data-url="tel://19993946374">(19) 99394-6374</a>
+
+    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="fb-button" data-event="ContactWhatsApp" data-url="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" data-target="_blank">Chame no WhatsApp</a>
+
+    <a href="mailto:contato@formeterra.com.br" class="fb-button" data-event="ContactEmail" data-url="mailto:contato@formeterra.com.br">E-mail</a>
+
+    
+    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="fb-button" data-event="ViewLocation" data-url="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" data-target="_blank">Endereço</a>
+
+
 </div>
 
 <div class="direitos">
@@ -553,6 +570,26 @@ modal.addEventListener('click', (e) => {
         modal.style.display = "none";
     }
 });
+
+// botões meta monitoramento
+
+document.querySelectorAll('.fb-button').forEach(el => {
+    el.addEventListener('click', (e) => {
+        const eventName = el.dataset.event;
+        fbq('track', eventName);
+
+        // Se tiver URL, redireciona
+        const url = el.dataset.url;
+        const target = el.dataset.target || "_self";
+
+        if(url) {
+            if(target === "_blank") window.open(url, "_blank");
+            else window.location.href = url;
+        }
+    });
+});
+
+
 </script>
 
 </body>
