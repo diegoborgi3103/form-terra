@@ -592,6 +592,11 @@ document.querySelectorAll('.fb-button').forEach(el => {
     });
 });
 
+  // Evento de carregamento exclusivo da página inicial
+  window.addEventListener('load', () => {
+      fbq('trackCustom', 'CarregamentoPaginaInicial');
+      console.log("Evento FB Pixel: CarregamentoPaginaInicial"); // só pra teste no console
+  });
 
 
 </script>
