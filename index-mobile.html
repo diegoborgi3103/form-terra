@@ -14,6 +14,26 @@
 
 <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png" />
 
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '777040181923024'); 
+  
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=777040181923024&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+
 <style>
   * {
     box-sizing: border-box;
@@ -150,14 +170,17 @@
     </div>
 
     <div class="dropdown" id="dropdownMenu">
-      <a href="sobre-mobile" class="highlight"></a>
+      <a href="sobre-mobile" class="fb-button" data-event="ClickSobre">SOBRE</a>
       <div class="close-btn" onclick="toggleMenu()">✖</div>
       <a href="index-mobile">HOME</a>
       <a href="sobre-mobile">SOBRE</a>
-      <a href="catalogo-mobile">CATÁLOGOS</a>
-      <a href="projetos-mobile">PROJETOS SOB MEDIDA</a>
-      <a href="https://formeterra.lojavirtualnuvem.com.br/" rel="noopener noreferrer">LOJA VIRTUAL</a>
-      <a href="contato-mobile">CONTATO</a>
+      <a href="catalogo-mobile" class="fb-button" data-event="ClickCatalogos">CATÁLOGOS</a>
+      <a href="projetos-mobile" class="fb-button" data-event="ClickProjetos">PROJETOS SOB MEDIDA</a>
+      <a href="https://formeterra.lojavirtualnuvem.com.br/" data-event="ClickLojaVirtualMenu" rel="noopener noreferrer">LOJA VIRTUAL</a>
+   
+     
+
+      <a href="contato-mobile" class="fb-button" data-event="ClickContato">CONTATO</a>
     </div>
   </div>
 
@@ -182,6 +205,7 @@
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <button
           class="button-lojavirtual"
+          data-event="ClickLojaVirtual"
           onclick="window.location.href='https://lojavirtual.formeterra.com.br/'"
           style="
             display: block;
@@ -201,7 +225,7 @@
 
         <button
   class="button-vejaumvideo"
-  
+  data-event="ClickVideo"
   onclick="window.open('https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações', '_blank')"
   style="
     display: block;
@@ -256,7 +280,7 @@
 
         <button
   class="button-lojavirtual"
- 
+  data-event="ClickCursoGratis"
   onclick="window.open('https://diegoborgi3103.github.io/formulario/', '_blank')"
   style="
     display: block;
@@ -310,6 +334,7 @@
           href="https://instagram.com/diegoborgi"
           class="diego"
           target="_blank"
+          data-event="VisualizouCriadorSite"
           rel="noopener noreferrer"
           >Diego Borgi</a
         >
@@ -384,6 +409,34 @@
         }
       });
     });
+
+
+    // botões meta monitoramento
+
+document.querySelectorAll('.fb-button').forEach(el => {
+    el.addEventListener('click', (e) => {
+        const eventName = el.dataset.event;
+        fbq('track', eventName);
+
+        const url = el.dataset.url;
+        const target = el.dataset.target || "_self";
+
+        if(url) {
+            if(target === "_blank") {
+                window.open(url, "_blank");
+                e.preventDefault(); // evita comportamento padrão
+            } else {
+                window.location.href = url;
+            }
+        }
+    });
+});
+
+  // Evento de carregamento exclusivo da página inicial
+  window.addEventListener('load', () => {
+      fbq('trackCustom', 'CarregamentoPaginaInicial');
+      console.log("Evento FB Pixel: CarregamentoPaginaInicial"); // só pra teste no console
+  });
 
 
    
