@@ -4,31 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <!-- SEO Meta Tags -->
 <meta name="description" content="Loja online de vasos de cerâmica direto da fábrica. Decore jardins, varandas e interiores com estilo. Entrega própria em todo o Brasil.">
 <meta name="keywords" content="Santa Gertrudes-SP, c&c, Petz, polo cerâmico, Tambaú-SP, Damme, Embramaco, Delta, Nova Delta, Formigres, Portinari, Almeida, Danni Pisos, Dani Pisos, Bocão Pisos, Bocão Express, vasos Tambaú, vasos Santa Gertrudes, porcelanato, vasos de cerâmica, vasos para jardim, decoração com plantas, ambiente externo, ambiente interno, vasos esmaltados, vasos naturais, Form&terra, Máximo Vasos, vasos atacado, vasos baratos, vasos São Paulo, vasos Curitiba, vasos Campinas">
-
 <meta name="author" content="Formaterra">
 
-<!-- Open Graph (para redes sociais e imagem em destaque no Google) -->
+<!-- Open Graph -->
 <meta property="og:title" content="Vasos de Cerâmica | Decoração para Jardins e Ambientes | Formeterra">
 <meta property="og:description" content="Compre vasos direto da fábrica com entrega própria. Ideal para jardim, varanda e decoração de interiores.">
 <meta property="og:image" content="https://i.postimg.cc/0QRz8bBD/Design-sem-nome.png">
 <meta property="og:url" content="https://lojavirtual.formeterra.com.br/">
 <meta property="og:type" content="website">
 
-    
-
 <title>Formaterra - Vasos de Cerâmica Direto da Fábrica - Venda Atacado e Varejo</title>
-
 <link rel="icon" href="https://i.postimg.cc/DmVsHxKk/favicon.png" type="image/png">
 
-<!-- Importa ícones Font Awesome -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<!-- Importa a fonte Montserrat do Google Fonts -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '777040181923024'); 
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=777040181923024&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
 <style>
     /* Reset básico e box-sizing */
@@ -406,12 +420,7 @@
 <!-- Cabeçalho fixo -->
 <header id="main-header">
     <div class="topo-logo">
-
        <img src="https://i.postimg.cc/C1wC7PsR/logoformterra.png" alt="Logo da Formaterra, loja de vasos de cerâmica, venda atacado, entrega própria, venda varejo">
-
-
-        
-        
     </div>
     <div class="linha-cinza"></div>
     <nav>
@@ -427,15 +436,9 @@
 
 <!-- Conteúdo principal -->
 <main>
-    <!-- Container flexível com duas colunas: texto e carousel -->
     <div class="main-container">
-        
-        <!-- Div do texto de apresentação -->
         <div class="texto-apresentacao">
-            <!-- Título principal para SEO -->
             <h1>Bem Vindo à Form&terra</h1>
-
-            <!-- Parágrafo descritivo -->
             <p>
                 Somos uma loja de fábrica localizada em <strong>Santa Gertrudes-SP</strong>. Nossa fábrica se chama <strong>Máximo Vasos</strong> especializada em trabalhar com barro, produzindo vasos de alta qualidade para todos os estilos.
                 Contamos com <strong>ENTREGA PRÓPRIA</strong> para garantir que seus pedidos cheguem com segurança e no prazo certo. Desenvolvemos <strong>projetos sob medida</strong> personalizados de acordo com sua necessidade e estilo.
@@ -443,22 +446,11 @@
                 Descubra a qualidade, design e tradição da Máximo Vasos e transforme seus ambientes com nossas peças únicas!
                 Veja nossos <strong>CATÁLOGOS</strong> e <strong>PROJETOS SOB MEDIDA</strong> e conheça nossa exclusiva <strong>Loja Virtual</strong> ou veja um vídeo de nossa fábrica.
             </p>
-
             <div>
-
-            <!-- Botão Loja Virtual -->
-            <button class="button-lojavirtual" onclick="window.location.href='https://lojavirtual.formeterra.com.br/'">
-                Loja Virtual
-            </button>
-
-            <!-- Botão Veja um vídeo -->
-            <button class="button-vejaumvideo" id="btnVideo">Veja um Video</button>
-
-            
-
+                <button class="button-lojavirtual" onclick="window.location.href='https://lojavirtual.formeterra.com.br/'">Loja Virtual</button>
+                <button class="button-vejaumvideo" id="btnVideo">Veja um Video</button>
             </div>
-
-            <!-- Modal do vídeo -->
+            <!-- Modal vídeo -->
             <div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
                 <div style="position:relative; width:80%; max-width:800px;">
                     <iframe id="videoIframe" width="100%" height="450px" src="" frameborder="0" allowfullscreen></iframe>
@@ -467,7 +459,6 @@
             </div>
         </div>
 
-        <!-- Div do carousel -->
         <div class="carousel">
             <img src="./assest/gifpaginainicial/1.png" alt="Imagem 1">
             <img src="./assest/gifpaginainicial/2.png" alt="Imagem 2">
@@ -479,124 +470,89 @@
     </div>
 </main>
 
+<!-- Dicas -->
 <div class="dicas">
-
-    <div class="titulodicas">
-        <p style="font-weight: bold; margin-top: 5px;">Transforme com praticidade!</p>
-    </div>
-
+    <div class="titulodicas"><p style="font-weight: bold; margin-top: 5px;">Transforme com praticidade!</p></div>
     <div class="apresentacaodicas">
-    
         <img class="imagemdicas1" src="./assest/imagens/ambiente1.png" alt="imagemdicas1">
-    
         <div style="margin-bottom: 20px;">
-            <p style="margin: 20px; line-height: 1.6; font-weight: bold; color: #545454;">Transforme qualquer ambiente com vasos de cerâmica, combinando tradição, design e sofisticação. Nossa linha inclui desde vasos naturais, que valorizam a textura e a essência do barro, até os esmaltados, que trazem cores vibrantes e acabamento refinado para destacar qualquer espaço. Cada vaso é pensado para harmonizar com o estilo do seu ambiente, seja interno ou externo, oferecendo elegância e durabilidade. Combinando estética e funcionalidade, os vasos de cerâmica proporcionam um toque único à sua decoração, tornando cada canto mais acolhedor e cheio de personalidade.</p>
-            
-            
-            <button class="button-vejaumvideo" onclick="window.open('https://diegoborgi3103.github.io/formulario/', '_blank')">
-    QUERO UM CURSO GRÁTIS
-</button>
-
+            <p style="margin: 20px; line-height: 1.6; font-weight: bold; color: #545454;">
+                Transforme qualquer ambiente com vasos de cerâmica, combinando tradição, design e sofisticação...
+            </p>
+            <button class="button-vejaumvideo" onclick="window.open('https://diegoborgi3103.github.io/formulario/', '_blank')">QUERO UM CURSO GRÁTIS</button>
         </div>
-
         <img class="imagemdicas2" src="./assest/imagens/ambiente2.png" alt="imagemdicas2">
-
     </div>
-
 </div>
 
+<!-- Antes e Depois -->
 <div class="antesedespois">
-
    <p>Transforme seu ambiente!</p>
-
-   <img style="max-width: 900px; max-height: 800px;" src="./assest/imagens/antesedepois1.png" alt="imagemdicas2">
-
-   <img style="max-width: 900px; max-height: 800px;" src="./assest/imagens/antesedepois2.png" alt="imagemdicas2">
-  
-  <img style="max-width: 900px; max-height: 800px;" src="./assest/imagens/antesedepois3.png" alt="imagemdicas2">
-
+   <img src="./assest/imagens/antesedepois1.png" alt="antes e depois 1">
+   <img src="./assest/imagens/antesedepois2.png" alt="antes e depois 2">
+   <img src="./assest/imagens/antesedepois3.png" alt="antes e depois 3">
 </div>
 
+<!-- Rodapé -->
 <div class="rodape">
-    <a href="tel://19993946374" class="telefone">
-       <img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
-       (19) 99394-6374
-    </a>
-    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="whatsapp">
-      <img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">
-      Chame no WhatsApp
-    </a>
-    <a href="mailto:contato@formeterra.com.br" class="email">
-      <img src="./assest/icones/email.png" alt="E-mail" class="icon">
-      E-mail
-    </a>
-    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco">
-      <img src="./assest/icones/endereco.png" alt="Endereço" class="icon">
-      Endereço
-    </a>
-
+    <a href="tel://19993946374"><img src="./assest/icones/telefone.png" alt="Telefone" class="icon">(19) 99394-6374</a>
+    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações"><img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">Chame no WhatsApp</a>
+    <a href="mailto:contato@formeterra.com.br"><img src="./assest/icones/email.png" alt="E-mail" class="icon">E-mail</a>
+    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9"><img src="./assest/icones/endereco.png" alt="Endereço" class="icon">Endereço</a>
 </div>
 
 <div class="direitos">
     <p>
-        Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; 
-        <span id="ano"></span> | Site desenvolvido por: 
-        <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+        Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; <span id="ano"></span> | 
+        Site desenvolvido por: <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
     </p>
 </div>
 
-
-
-
 <script>
-    // Reduz cabeçalho ao rolar
-    window.addEventListener("scroll", function() {
-        let header = document.getElementById("main-header");
-        if (window.scrollY > 50) { header.classList.add("shrink"); } 
-        else { header.classList.remove("shrink"); }
-    });
+// Cabeçalho menor ao rolar
+window.addEventListener("scroll", () => {
+    let header = document.getElementById("main-header");
+    if (window.scrollY > 50) header.classList.add("shrink");
+    else header.classList.remove("shrink");
+});
 
-    // Carousel de imagens
-    const slides = document.querySelectorAll('.carousel img');
-    let current = 0;
-    function showNextSlide() {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-    }
+// Carousel
+const slides = document.querySelectorAll('.carousel img');
+let current = 0;
+function showNextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
     slides[current].classList.add('active');
-    setInterval(showNextSlide, 1000);
+}
+slides[current].classList.add('active');
+setInterval(showNextSlide, 1000);
 
-    // Redireciona celulares para versão mobile
-    document.addEventListener("DOMContentLoaded", () => {
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const isSmallScreen = window.innerWidth < 768;
-        if (isMobile || isSmallScreen) { window.location.href = "index-mobile"; }
-    });
+// Redireciona para versão mobile
+document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile || window.innerWidth < 768) window.location.href = "index-mobile";
+});
 
-    // Modal do vídeo
-    const btnVideo = document.getElementById('btnVideo');
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('videoIframe');
-    const closeBtn = document.getElementById('closeVideo');
+// Modal vídeo
+const btnVideo = document.getElementById('btnVideo');
+const modal = document.getElementById('videoModal');
+const iframe = document.getElementById('videoIframe');
+const closeBtn = document.getElementById('closeVideo');
 
-    btnVideo.addEventListener('click', () => {
-        iframe.src = "https://www.youtube.com/embed/ByszUu1dPzQ?autoplay=1"; // inicia vídeo automaticamente
-        modal.style.display = "flex";
-    });
-
-    closeBtn.addEventListener('click', () => {
-        iframe.src = ""; // para o vídeo
+btnVideo.addEventListener('click', () => {
+    iframe.src = "https://www.youtube.com/embed/ByszUu1dPzQ?autoplay=1";
+    modal.style.display = "flex";
+});
+closeBtn.addEventListener('click', () => {
+    iframe.src = "";
+    modal.style.display = "none";
+});
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        iframe.src = "";
         modal.style.display = "none";
-    });
-
-    // Fecha modal ao clicar fora do iframe
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            iframe.src = "";
-            modal.style.display = "none";
-        }
-    });
+    }
+});
 </script>
 
 </body>
