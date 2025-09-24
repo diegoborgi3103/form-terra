@@ -605,6 +605,42 @@ document.querySelectorAll('.fb-button').forEach(el => {
       console.log("Evento FB Pixel: CarregamentoPaginaInicial"); // só pra teste no console
   });
 
+ 
+// Função para verificar se o elemento está visível na tela
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top < window.innerHeight &&
+        rect.bottom > 0
+    );
+}
+
+// Flags para não disparar mais de uma vez
+let viewedApresentacao = false;
+let viewedAntesDepois = false;
+
+window.addEventListener('scroll', () => {
+    // Seleciona os blocos
+    const apresentacao = document.querySelector('.texto-apresentacao');
+    const antesDepois = document.querySelector('.antesedespois');
+
+    // Verifica se a "Apresentação" foi visualizada
+    if (!viewedApresentacao && apresentacao && isInViewport(apresentacao)) {
+        fbq('trackCustom', 'Visualizou Conteudo Apresentacao (pagina inicial)');
+        console.log("Evento FB Pixel: Visualizou Apresentacao");
+        viewedApresentacao = true; // evita repetição
+    }
+
+    // Verifica se o "Antes e Depois" foi visualizado
+    if (!viewedAntesDepois && antesDepois && isInViewport(antesDepois)) {
+        fbq('trackCustom', 'Visualizou Conteudo Antes e Depois (pagina inicial)');
+        console.log("Evento FB Pixel: Visualizou Antes e Depois");
+        viewedAntesDepois = true; // evita repetição
+    }
+});
+
+
+
 
 </script>
 
