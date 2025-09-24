@@ -7,6 +7,27 @@
 <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
+<!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;
+            n=f.fbq=function(){n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+            if(!f._fbq) f._fbq=n;
+            n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[];
+            t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s);
+        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '777040181923024'); 
+        fbq('track', 'Visualizou Pagina Contatos'); 
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=777040181923024&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
 <style>
   * {
     box-sizing: border-box;
@@ -301,10 +322,10 @@
       <a href="sobre-mobile" class="highlight"></a> <!-- LINHA DESTACADA -->
       <div class="close-btn" onclick="toggleMenu()">✖</div>
       <a href="index-mobile">HOME</a>
-      <a href="sobre-mobile">SOBRE</a>
-      <a href="catalogo-mobile">CATÁLOGOS</a>
-      <a href="projetos-mobile">PROJETOS SOB MEDIDA</a>
-      <a href="https://formeterra.lojavirtualnuvem.com.br/">LOJA VIRTUAL</a>
+      <a href="sobre-mobile" class="fb-button" data-event="Clicou no Botão Pagina Sobre (Menu)">SOBRE</a>
+      <a href="catalogo-mobile" class="fb-button" data-event="Clicou no Botão Catálagos  Pagina (Menu)">CATÁLOGOS</a>
+      <a href="projetos-mobile" class="fb-button" data-event="Clicou no Botão Projetos do (Menu)">PROJETOS SOB MEDIDA</a>
+      <a href="https://formeterra.lojavirtualnuvem.com.br/" class="fb-button" data-event="Clicou no Botão Pagina Loja Virtual (Menu)">LOJA VIRTUAL</a>
       <a href="contato-mobile">CONTATO</a>
     </div>
   </div>
@@ -317,19 +338,19 @@
     </p>
 
     <div class="contato-celular">
-      <a href="tel://19993946374" class="btn-contato telefone-btn">
+      <a href="tel://19993946374" class="btn-contato telefone-btn fb-button" data-event="Clicou no botão Telefone (Paginacontatocelular)">
         <img src="./assest/icones/telefone.png" class="icon" alt="Telefone" /> (19) 99394-6374
       </a>
 
-      <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="btn-contato whatsapp-btn" target="_blank" rel="noopener noreferrer">
+      <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="btn-contato whatsapp-btn fb-button " data-event="Clicou no Botão WhatsApp (Paginacontatocelular)" target="_blank" rel="noopener noreferrer">
         <img src="./assest/icones/whatsapp.png" class="icon" alt="WhatsApp" /> WhatsApp
       </a>
 
-      <a href="mailto:contato@maximovasos.com.br" class="btn-contato email-btn">
+      <a href="mailto:contato@maximovasos.com.br" class="btn-contato email-btn fb-button" data-event="Clicou no botão E-mail (Paginacontatocelular)">
         <img src="./assest/icones/email.png" class="icon" alt="E-mail" /> E-mail
       </a>
 
-      <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="btn-contato endereco-btn" target="_blank" rel="noopener noreferrer">
+      <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="btn-contato endereco-btn fb-button" data-event="Clicou no Botão Localização (rodapé)" target="_blank" rel="noopener noreferrer">
         <img src="./assest/icones/endereco.png" class="icon" alt="Endereço" /> Endereço
       </a>
     </div>
@@ -340,7 +361,7 @@
   <!-- RODAPÉ -->
   <div class="direitoscelular">
     <p>Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; <span id="ano"></span></p>
-    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" target="_blank" rel="noopener noreferrer">Diego Borgi</a></p>
+    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" class="fb-button" data-event="Clicou no Botão Criador do Site (rodapé)" target="_blank" rel="noopener noreferrer">Diego Borgi</a></p>
   </div>
 
   <script>
@@ -357,6 +378,24 @@
     };
 
     document.getElementById("ano").textContent = new Date().getFullYear();
+
+
+     // Função para disparar Pixel em todos os botões com data-event
+        document.querySelectorAll('.fb-button').forEach(el => {
+            el.addEventListener('click', function(e){
+                const eventName = this.dataset.event;
+                if(eventName && typeof fbq === 'function') {
+                    fbq('track', eventName);
+                }
+                const url = this.href || this.dataset.url;
+                const target = this.target || "_self";
+                if(url) {
+                    e.preventDefault();
+                    if(target === "_blank") window.open(url, "_blank");
+                    else window.location.href = url;
+                }
+            });
+        });
   </script>
 </body>
 </html>
