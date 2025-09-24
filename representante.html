@@ -4,19 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visita do Representante - Form&terra</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   body {
     margin:0;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Lato', sans-serif;
     background:#f7f7f7;
     display:flex;
     align-items:center;
     justify-content:center;
     min-height:100vh;
+    padding: 20px;
   }
   .card {
     background:#fff;
-    width:95%;
+    width:100%;
     max-width:720px;
     border-radius:12px;
     padding:24px;
@@ -24,10 +29,10 @@
   }
   h1, h2 { text-align:center; color:#125A62; margin-top:0; }
   h1 span { color:red; }
-  .rep-form { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
-  .rep-form .full { grid-column:1 / -1; }
-  label { font-size:13px; margin-bottom:4px; display:block; }
-  input, textarea {
+  form { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .full { grid-column:1 / -1; }
+  label { font-size:13px; margin-bottom:4px; display:block; color:#333; }
+  input, textarea, select {
     width:100%;
     padding:10px;
     border:1px solid #ddd;
@@ -36,110 +41,114 @@
     box-sizing:border-box;
   }
   textarea { min-height:100px; resize:vertical; }
-  .note { font-size:12px; color:#777; margin-top:6px; grid-column:1/-1; }
   .actions { display:flex; justify-content:flex-end; gap:10px; margin-top:16px; grid-column:1/-1; }
   .btn { padding:10px 16px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
-  .btn.close { background:#fa2b2b; color:#fcfcfc; }
+  .btn.close { background:#fa2b2b; color:#fff; }
   .btn.send { background:#125A62; color:#fff; }
-  @media(max-width:600px){ .rep-form{ grid-template-columns:1fr; } }
+  .note { font-size:12px; color:#777; grid-column:1/-1; }
+  label.error { color:#DC3543; font-size:12px; margin-top:3px; }
+  @media(max-width:600px){ form{ grid-template-columns:1fr; } }
 </style>
 
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-</head>
-<body>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://d335luupugsy2.cloudfront.net/js/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>emailjs.init("RwT4JVStkVV8WYvvf");</script>
+</head>
+
+<body>
 <div class="card">
   <h1>Você Ganhou uma Consultoria <span>Grátis</span></h1>
   <h2>Você é Lojista?</h2>
-  <p style="font-weight:bold; text-align:center;">
-    Temos Profissionais Treinados para te atender, em todos os sentidos: dicas de produtos, tipos de ambiente, sites, loja virtual. Solicite a visita de um Representante Gratuitamente e ganhe uma Consultoria.
+  <p style="text-align:center; font-weight:bold;">
+    Temos profissionais treinados para te atender, dar dicas de produtos, tipos de ambiente, sites e loja virtual. Solicite a visita de um representante gratuitamente e ganhe uma consultoria.
   </p>
-  <h2>Solicitar visita do representante Grátis</h2>
-  <p style="font-weight:bold; text-align:center;">
-    Preencha os dados abaixo se desejar que um representante Form&terra entre em contato. Nenhum campo é obrigatório.
+  <h2>Solicitar visita do representante</h2>
+  <p style="text-align:center; font-weight:bold;">
+    Preencha os dados abaixo. Nenhum campo é obrigatório.
   </p>
 
-  <form id="repForm" class="rep-form">
+  <form id="repForm">
     <div class="full">
-      <label>Nome</label>
-      <input type="text" name="nome" placeholder="Nome ou nome da loja">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Nome ou nome da loja">
     </div>
     <div>
-      <label>Telefone</label>
-      <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
     </div>
     <div>
-      <label>E-mail</label>
-      <input type="email" name="email" placeholder="contato@loja.com">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="contato@loja.com">
     </div>
     <div class="full">
-      <label>Município</label>
-      <input type="text" name="cidade" placeholder="Ex: Santa Gertrudes - SP">
+      <label for="cidade">Município</label>
+      <input type="text" id="cidade" name="cidade" placeholder="Ex: Santa Gertrudes - SP">
     </div>
     <div class="full">
-      <label>Mensagem</label>
-      <textarea name="mensagem" placeholder="Ex: interesse em vasos grandes, atacado..."></textarea>
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Ex: interesse em vasos grandes, atacado..."></textarea>
     </div>
     <div class="note">Nenhum campo é obrigatório — preencha apenas o que preferir.</div>
 
     <div class="actions">
-      <button type="button" class="btn close" id="closeBtn">Não tenho interesse, ir para o Site Form&terra</button>
+      <button type="button" class="btn close" id="closeBtn">Não tenho interesse, ir para o site</button>
       <button type="submit" class="btn send" id="sendBtn">Enviar</button>
     </div>
   </form>
 </div>
 
 <script>
-// Inicializa EmailJS
-emailjs.init("RwT4JVStkVV8WYvvf"); // substitua pela sua public key
+$(document).ready(function(){
+  // Máscara de telefone
+  $('#telefone').mask('(00) 00000-0000');
 
-const form = document.getElementById('repForm');
-const sendBtn = document.getElementById('sendBtn');
-const closeBtn = document.getElementById('closeBtn');
+  // Redirecionar
+  $('#closeBtn').click(()=> window.location.href="https://www.formeterra.com.br/");
 
-// Redirecionar
-closeBtn.addEventListener('click', () => {
-  window.location.href = "index";
-});
+  // Validação e envio
+  $("#repForm").validate({
+    rules:{
+      nome: { minlength: 2 },
+      email: { email: true },
+      telefone: { minlength: 14 }
+    },
+    messages:{
+      nome: "Informe seu nome",
+      email: "Digite um e-mail válido",
+      telefone: "Informe um telefone válido"
+    },
+    submitHandler: function(formElement){
+      const formData = {
+        nome: $("#nome").val() || '-',
+        telefone: $("#telefone").val() || '-',
+        email: $("#email").val() || '-',
+        cidade: $("#cidade").val() || '-',
+        mensagem: $("#mensagem").val() || '-'
+      };
 
-// Máscara de telefone
-const telefoneInput = document.getElementById('telefone');
-telefoneInput.addEventListener('input', (e) => {
-  let v = e.target.value.replace(/\D/g, '');
-  if(v.length > 11) v = v.slice(0,11);
-  v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
-  v = v.replace(/(\d{5})(\d{1,4})$/, '$1-$2');
-  e.target.value = v;
-});
+      $("#sendBtn").prop("disabled", true).text("Enviando...");
 
-// Envio via EmailJS
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  sendBtn.disabled = true;
-  sendBtn.textContent = "Enviando...";
-
-  const templateParams = {
-    nome: form.nome.value || '-',
-    telefone: form.telefone.value || '-',
-    email: form.email.value || '-',
-    cidade: form.cidade.value || '-',
-    mensagem: form.mensagem.value || '-'
-  };
-
-  emailjs.send("service_h3qdq56","template_cz2ujaq", templateParams)
-    .then(function(response) {
-      sendBtn.textContent = "Sucesso! Um representante entrará em contato em breve. Obrigado!";
-      sendBtn.style.background = "#28a745";
-      setTimeout(() => { window.location.href = "index"; }, 3000);
-    }, function(error) {
+      emailjs.send("service_h3qdq56","template_cz2ujaq", formData)
+    .then(function(response){
+      alert("✅ Formulário enviado! Um representante entrará em contato em breve.");
+      formElement.reset();
+      $("#sendBtn").prop("disabled", false).text("Enviar");
+      // Redireciona para o site após o envio
+      window.location.href = "https://www.formeterra.com.br/";
+    }, function(error){
       console.error("Erro EmailJS:", error);
-      alert("O envio falhou, tente novamente!");
-      sendBtn.disabled = false;
-      sendBtn.textContent = "Enviar";
+      alert("❌ Falha ao enviar. Tente novamente.");
+      $("#sendBtn").prop("disabled", false).text("Enviar");
     });
+
+    }
+  });
 });
 </script>
-
 </body>
 </html>
