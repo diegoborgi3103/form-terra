@@ -10,10 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
 
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '777040181923024'); 
+  fbq('trackCustom', 'Visualizou Pagina Sobre');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=777040181923024&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
   * { box-sizing: border-box; }
 
-    body {
+  body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #EEEEEE;
@@ -28,7 +47,7 @@
   }
 
   /* LOGO */
-.row {
+  .row {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,26 +55,24 @@
     min-height: 130px;
     max-height: 130px;
     width: 100%;
-    border-bottom: 1px solid #A78164; /* borda inferior cinza claro e fina */
-}
+    border-bottom: 1px solid #A78164;
+  }
 
- 
-  .row { margin-top: 0px; width: 100%; }
   .row img {
-    width: 300px;         /* aumenta a logo */
+    width: 300px;
     display: block;
     margin: 0 auto;
   }
 
   @media (max-width: 480px) {
     .row img {
-      width: 250px;      /* menor no celular */
+      width: 250px;
       border-top-left-radius: 15px;
       border-top-right-radius: 30px;
       border-bottom-right-radius: 30px;
       border-bottom-left-radius: 0;
       box-shadow: 4px 4px 15px rgba(0, 0, 0, 1);
-    
+    }
   }
 
   /* MENU SUPERIOR */
@@ -66,7 +83,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0px;
     position: relative;
     z-index: 1001;
     padding: 20px;
@@ -84,91 +100,71 @@
   }
 
   .menucelular img.icon { width: 20px; }
- 
-  .close-btn {
-    text-align: right;
-    padding: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: white;
-    background-color: #956641;
-    
-  }
 
   .dropdown {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 83%;
-  height: 100%;
-  background-color: #956641;
-  z-index: 1000;
-  padding-top: 0px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 83%;
+    height: 100%;
+    background-color: #956641;
+    z-index: 1000;
+    padding-top: 0px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
     font-family: 'Montserrat', sans-serif;
-}
+  }
 
-.dropdown.show {
-  display: flex;
-}
+  .dropdown.show { display: flex; }
 
-.close-btn {
-  text-align: left;
-  padding: 15px 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: bold;
-}
+  .close-btn {
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+  }
 
-.dropdown a {
-  padding: 15px 20px;
-  text-decoration: none;
-  color: white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 1rem;
-  text-align: left;
-}
+  .dropdown a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    text-align: left;
+  }
 
-.dropdown a:hover {
-  background-color: #7a4f2e;
-}
+  .dropdown a:hover { background-color: #7a4f2e; }
 
- .dropdown a.highlight {
-  background-color: #F39C12; /* fundo amarelo */
-  color: #F39C12;               /* texto preto para contraste */
-  font-weight: bold;         /* texto em negrito */
-  padding: 5px 5px;        /* altura da linha */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* borda suave */
-}
-
-
+  .dropdown a.highlight {
+    background-color: #F39C12;
+    color: #F39C12;
+    font-weight: bold;
+    padding: 5px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
   /* TEXTO CENTRAL */
-.welcome p {
-  font-size: 0.9rem;
-  color: #000;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  margin: 15px auto;
-  width: 90%;
-  text-align: center;
+  .welcome p {
+    font-size: 0.9rem;
+    color: #000;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 15px auto;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
 
-  /* Borda suave */
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  /* Sombra leve */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
- /* BOTÕES */
+  /* BOTÕES */
   .btn-video, .btn-informacoes, .btn-lojavirtual {
     display: block;
     margin: 10px auto 0;
@@ -194,17 +190,13 @@
   }
   .btn-informacoes:hover { background-color: #128C7E; }
 
-.btn-lojavirtual  {
+  .btn-lojavirtual  {
     width: 60%;
     max-width: 180px;
     background-color: #E60804;
     margin-bottom: 20px;
   }
-  .btn-lojavirtual:hover { 
-   background-color: #128C7E; 
-    }
-
-
+  .btn-lojavirtual:hover { background-color: #128C7E; }
 
   /* RODAPÉ */
   .direitoscelular {
@@ -238,16 +230,19 @@
     </div>
 
     <div class="dropdown" id="dropdownMenu">
-      <a href="sobre-mobile" class="highlight"></a> <!-- LINHA DESTACADA -->
+      <a href="sobre-mobile" class="highlight"></a>
       <div class="close-btn" onclick="toggleMenu()">✖</div>
       <a href="index-mobile">HOME</a>
-      <a href="sobre-mobile">SOBRE</a>
-      <a href="catalogo-mobile">CATÁLOGOS</a>
-      <a href="projetos-mobile">PROJETOS SOB MEDIDA</a>
-      <a href="https://formeterra.lojavirtualnuvem.com.br/">
-        LOJA VIRTUAL
-       </a>
-      <a href="contato-mobile">CONTATO</a>
+      <a href="sobre-mobile" class="fb-button" data-event="Clicou no Botão Pagina Sobre (Menu)">SOBRE</a>
+      <a href="catalogo-mobile" class="fb-button" data-event="Clicou no Botão Catálagos  Pagina (Menu)">CATÁLOGOS</a>
+      <a href="projetos-mobile" class="fb-button" data-event="Clicou no Botão Projetos do (Menu)">PROJETOS SOB MEDIDA</a>
+      <a href="https://formeterra.lojavirtualnuvem.com.br/" 
+         class="fb-button" 
+         data-event="Clicou no Botão Pagina Loja Virtual (Menu)"
+         data-url="https://formeterra.lojavirtualnuvem.com.br/">
+         LOJA VIRTUAL
+      </a>
+      <a href="contato-mobile" class="fb-button" data-event="Clicou no Botão Pagina Contato (menu)">CONTATO</a>
     </div>
   </div>  
 
@@ -263,22 +258,33 @@
     
     <p>
     <strong>Entrega e Logística</strong><br><br>
-    Contamos com logística própria para garantir que nossos vasos cheguem intactos em qualquer região do país
-    Utilizamos veículos como Saveiro para pequenas entregas e Iveco Daily para maiores volumes. Nossa equipe é altamente capacitada.</p>
-  
-  
-  
+    Contamos com logística própria para garantir que nossos vasos cheguem intactos em qualquer região do país.
+    Utilizamos veículos como Saveiro para pequenas entregas e Iveco Daily para maiores volumes. Nossa equipe é altamente capacitada.
+    </p>
   </div>
 
-  
+  <!-- BOTÕES -->
+  <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" 
+     target="_blank" 
+     class="btn-informacoes fb-button" 
+     data-event="Clicou no Botão +Informações (sobre)" 
+     data-url="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" 
+     data-target="_blank">
+     + INFORMAÇÕES
+  </a>
 
-  <!-- BOTÃO WHATSAPP -->
-  <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" target="_blank" class="btn-informacoes">+ INFORMAÇÕES</a>
-  <a href="https://lojavirtual.formeterra.com.br" class="btn-lojavirtual">LOJA VIRTUAL</a>
+  <a href="https://lojavirtual.formeterra.com.br" 
+     class="btn-lojavirtual fb-button" 
+     data-event="Clicou no Botão Loja Virtual (apresentação)" 
+     data-url="https://lojavirtual.formeterra.com.br" >
+     LOJA VIRTUAL
+  </a>
+
   <!-- RODAPÉ -->
   <div class="direitoscelular">
     <p>Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; <span id="ano"></span></p>
-    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" target="_blank">Diego Borgi</a></p>
+    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" target="_blank" class="fb-button diego" 
+       data-event="Clicou no Botão Criador do Site (rodapé)">Diego Borgi</a></p>
   </div>
 
 <script>
@@ -290,11 +296,29 @@ window.onclick = function(event) {
     document.getElementById("dropdownMenu").classList.remove("show");
   }
 }
-document.getElementById('btnVideo').addEventListener('click', function(e){
-    e.preventDefault();
-    window.open('https://www.youtube.com/watch?v=ByszUu1dPzQ', 'video', 'width=800,height=450,top=100,left=100');
-});
+
 document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Função central para rastrear e navegar
+function handleFBClick(e) {
+    const el = e.currentTarget;
+    const eventName = el.dataset.event;
+    if (eventName && typeof fbq === 'function') fbq('track', eventName);
+
+    const url = el.dataset.url;
+    const target = el.dataset.target || "_self";
+
+    if (url) {
+        e.preventDefault();
+        if (target === "_blank") window.open(url, "_blank");
+        else window.location.href = url;
+    }
+}
+
+// Aplica a todos os botões e links
+document.querySelectorAll('.fb-button').forEach(el => {
+    el.addEventListener('click', handleFBClick);
+});
 </script>
 </body>
 </html>
