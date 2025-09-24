@@ -160,11 +160,11 @@
     <a class="highlight"></a>
     <div class="close-btn" onclick="toggleMenu()">✖</div>
     <a href="index-mobile">HOME</a>
-    <a href="sobre-mobile" class="fb-button" data-event="ClickSobre">SOBRE</a>
-    <a href="catalogo-mobile" class="fb-button" data-event="ClickCatalogos">CATÁLOGOS</a>
-    <a href="projetos-mobile" class="fb-button" data-event="ClickProjetos">PROJETOS SOB MEDIDA</a>
-    <a href="https://formeterra.lojavirtualnuvem.com.br/" class="fb-button" data-event="ClickLojaVirtualMenu" target="_blank">LOJA VIRTUAL</a>
-    <a href="contato-mobile" class="fb-button" data-event="ClickContato">CONTATO</a>
+    <a href="sobre-mobile" class="fb-button" data-event="Clicou no Botão Pagina Sobre (Menu)">SOBRE</a>
+    <a href="catalogo-mobile" class="fb-button" data-event="Clicou no Botão Catálagos  Pagina (Menu)">CATÁLOGOS</a>
+    <a href="projetos-mobile" class="fb-button" data-event="Clicou no Botão Projetos do (Menu)">PROJETOS SOB MEDIDA</a>
+    <a href="https://formeterra.lojavirtualnuvem.com.br/" class="fb-button" data-event="Clicou no Botão Pagina Loja Virtual (Menu)" target="_blank">LOJA VIRTUAL</a>
+    <a href="contato-mobile" class="fb-button" data-event="Clicou no Botão Pagina Contato (menu)">CONTATO</a>
   </div>
 </div>
 
@@ -179,7 +179,7 @@
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
     <button
       class="button-lojavirtual"
-      data-event="ClickLojaVirtual"
+      data-event="Clicou no Botão Loja Virtual (apresentação)"
       onclick="window.location.href='https://lojavirtual.formeterra.com.br/'"
       style="display:block;margin-bottom:10px;width:300px;border-radius:10px;height:30px;color:#faf8f8;background-color:#e60804;font-weight:bold;cursor:pointer;">
       LOJA VIRTUAL
@@ -188,7 +188,7 @@
     <button
       class="button-vejaumvideo"
       id="btnWhatsapp"
-      data-event="Click+informacoescelular"
+      data-event="Clicou no Botão + Informações (apresentação)"
       style="display:block;margin-bottom:10px;width:150px;border-radius:10px;height:30px;color:#faf8f8;background-color:#125A62;font-weight:bold;cursor:pointer;">
       + INFORMAÇÕES
     </button>
@@ -203,11 +203,13 @@
          alt="imagemdicas1" />
 
     <p style="font-size:12px;padding:1px 20px 10px 20px;line-height:1.5em;font-weight:bold;color:#545454;">
-      Transforme qualquer ambiente com vasos de cerâmica, combinando tradição, design e sofisticação...
+       🌿 Form&terra 🌿<br>
+Transforme seu ambiente com vasos de cerâmica exclusivos, que unem tradição artesanal, qualidade e design.
+Seja no jardim, na varanda ou dentro de casa, nossos vasos valorizam suas plantas e dão mais estilo ao seu espaço.
     </p>
 
     <button class="button-lojavirtual"
-      data-event="ClickCursoGratis"
+      data-event="Clicou no Botão Curso Grátis (apresentação)"
       onclick="window.open('https://diegoborgi3103.github.io/formulario/', '_blank')"
       style="display:block;margin:0 auto 10px auto;width:300px;border-radius:10px;height:30px;color:#faf8f8;background-color:#e60804;font-weight:bold;cursor:pointer;">
       QUERO UM CURSO GRÁTIS
@@ -267,9 +269,36 @@
 
   // Evento carregamento da página
   window.addEventListener('load', () => {
-    fbq('trackCustom', 'CarregamentoPaginaInicial');
+    fbq('trackCustom', 'Visualizou Pagina inicial');
     console.log("Evento FB Pixel: CarregamentoPaginaInicial");
   });
+
+
+  // Função para detectar quando o usuário chega em um elemento
+  function trackScrollEvent(selector, eventName) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+
+    let fired = false;
+    window.addEventListener('scroll', () => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (!fired && rect.top < windowHeight && rect.bottom > 0) {
+        fbq('trackCustom', eventName);
+        console.log(`Evento FB Pixel: ${eventName}`);
+        fired = true; // evita disparo múltiplo
+      }
+    });
+  }
+
+  // Dispara evento para a seção de apresentação
+  trackScrollEvent('.texto-apresentacao > div:first-child', 'Visualizou Conteudo Apresentacao (pagina inicial)');
+
+  // Dispara evento para a seção Antes e Depois
+  trackScrollEvent('.texto-apresentacao > div:nth-child(3)', 'Visualizou Conteudo Antes e Depois (pagina inicial)');
+
+
+  
 </script>
 
 </body>
